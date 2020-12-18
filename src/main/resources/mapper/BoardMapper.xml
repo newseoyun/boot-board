@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.seoyun.manage.mapper.BoardMapper">
+
+    <select id="selectBoardAll" resultType="Board">
+        SELECT *
+        FROM board
+    </select>
+
+    <select id="selectBoardById" resultType="Board">
+        SELECT *
+        FROM board
+        WHERE bd_id = #{bdId}
+    </select>
+
+    <insert id="insertProduct" parameterType="Board">
+        insert into board (
+              bd_id
+            , bd_code
+            , bd_title
+            , bd_contents
+            , bd_writer
+            , bd_member_code
+            , bd_create
+        )
+        values (
+            nextval('board_seq')
+            , #{bdCode}
+            , #{bdTitle}
+            , #{bdContents}
+            , #{bdWriter}
+            , #{bdMemberCode}
+            , now()
+        )
+    </insert>
+</mapper>

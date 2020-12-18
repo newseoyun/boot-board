@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 3
+    url: jdbc:postgresql://192.168.219.100:54322/hihi
+    username: sy
+    password: 1231
+
+mybatis:
+  mapper-locations: mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: edu.seoyun.manage.domain
+
+logging:
+  level:
+    "[edu.seoyun.manage.mapper]": TRACE
